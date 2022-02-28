@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Travels</title>
+</head>
+<body>
+    <h1>Ticket booking</h1>
+
+    <form class="ui form" action="/add" method="post">
+        <div class="field">
+            <label>Bus Name</label>
+            <input type="text" name="bus" placeholder="Enter Bus Name..."><br>
+            <label>Capacity</label>
+            <input type="text" name="capacity" placeholder="Enter bus capacity..."><br>
+            <label>Departure Time</label>
+            <input type="text" name="time" placeholder="Enter bus leaving time..."><br>
+            
+        </div>
+
+        <button class="ui blue button" type="submit">Submit</button>
+
+      
+    </form>
+
+    <hr>
+
+    <form class="ui form" action="/add" method="post">
+        <div class="field">
+            <label>Passenger Name</label>
+            <input type="text" name="passenger" placeholder="Enter Name..."><br>
+            <label>Phone Number</label>
+            <input type="text" name="phone" placeholder="Enter phone number..."><br>
+        </div>
+        <button class="ui blue button" type="submit">Book space</button>
+
+    </form>
+    
+
+    <hr>
+
+    {% for Capacity in bus %}
+        <div class="ui segment">
+            <p class="ui big header">{{capacity.id }} | {{ capacity.title }}</p>
+
+            {% if add_passangers == False %}
+            <span class="ui gray label">Fully booked</span>
+            {% else %}
+            <span class="ui green label"> More space</span>
+            {% endif %}
+
+            
+        </div>
+        {% endfor %}
+    </div>
+
+   
+
+    
+</body>
+</html>
